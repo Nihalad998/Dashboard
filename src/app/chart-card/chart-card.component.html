@@ -1,0 +1,14 @@
+<!-- chart-card.component.html -->
+<div class="chart-card-container">
+  <div class="chart-card-header">
+    <h2>{{ title }}</h2>
+  </div>
+  <div class="chart-card-body">
+    <canvas baseChart
+      [type]="type"
+      [data]="chartData"
+      [options]="chartOptions"
+      height="300">
+    </canvas>
+  </div>
+</div>

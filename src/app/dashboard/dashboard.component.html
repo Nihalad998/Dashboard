@@ -1,0 +1,55 @@
+<div class="dashboard-container">
+  <div class="dashboard-header">
+    <h1>Interactive Dashboard</h1>
+    <div class="timeframe-selector">
+      <label for="timeframe">Timeframe:</label>
+      <select id="timeframe" (change)="changeTimeframe($event)" [(ngModel)]="timeframe">
+        <option value="daily">Daily</option>
+        <option value="weekly">Weekly</option>
+        <option value="monthly">Monthly</option>
+        <option value="yearly">Yearly</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="stat-cards-container">
+    <app-stat-card 
+      *ngFor="let card of statCards" 
+      [title]="card.title" 
+      [value]="card.value" 
+      [icon]="card.icon" 
+      [color]="card.color"
+      [isPercentage]="card.isPercentage || false">
+    </app-stat-card>
+  </div>
+
+  <div class="charts-container">
+    <app-chart-card 
+      class="chart-card"
+      title="Revenue Overview" 
+      type="line" 
+      [timeframe]="timeframe">
+    </app-chart-card>
+    
+    <app-chart-card 
+      class="chart-card"
+      title="User Acquisition" 
+      type="bar" 
+      [timeframe]="timeframe">
+    </app-chart-card>
+    
+    <app-chart-card 
+      class="chart-card"
+      title="Traffic Sources" 
+      type="pie" 
+      [timeframe]="timeframe">
+    </app-chart-card>
+    
+    <app-chart-card 
+      class="chart-card"
+      title="Conversion Metrics" 
+      type="radar" 
+      [timeframe]="timeframe">
+    </app-chart-card>
+  </div>
+</div>
